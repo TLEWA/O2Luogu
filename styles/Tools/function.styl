@@ -14,12 +14,16 @@
 	// 定义函数别名
 	define_alias(base,ext)
 		str_ext = ''+ext+''
-		str_base = ''+base+''
 
-		alias_map[str_ext] = str_base
+		if type(base) != "function"
+			str_base = ''+base+''
 
-		define(str_ext,@() {
-			func_name = function_name()
-			define("Inline-func",convert(name_base(func_name)))
-			Inline-func(arguments)
-		},global=true)
+			alias_map[str_ext] = str_base
+
+			define(str_ext,@() {
+				func_name = function_name()
+				define("Inline-func",convert(name_base(func_name)))
+				Inline-func(arguments)
+			},global=true)
+		else
+			define(str_ext,base,global=true)
