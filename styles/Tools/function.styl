@@ -1,0 +1,25 @@
+// 函数相关升级功能
+	// 获取函数名称
+	function_name()
+		return ''+called-from[0]+''
+
+	// 获取函数基底名称
+	name_base(ext)
+		str_ext = ''+ext+''
+		if str_ext in alias_map
+			return name_base(alias_map[str_ext])
+		else
+			return str_ext
+
+	// 定义函数别名
+	define_alias(base,ext)
+		str_ext = ''+ext+''
+		str_base = ''+base+''
+
+		alias_map[str_ext] = str_base
+
+		define(str_ext,@() {
+			func_name = function_name()
+			define("Inline-func",convert(name_base(func_name)))
+			Inline-func(arguments)
+		},global=true)
