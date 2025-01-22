@@ -15,7 +15,7 @@
 	define_alias(base,ext)
 		str_ext = ''+ext+''
 
-		if type(base) != "function"
+		if type(base) != "function" // 不推荐传入函数，传入字符串可以获取函数基底名称
 			str_base = ''+base+''
 
 			alias_map[str_ext] = str_base
@@ -25,5 +25,5 @@
 				define("Inline-func",convert(name_base(func_name)))
 				Inline-func(arguments)
 			},global=true)
-		else
+		else // 传入函数
 			define(str_ext,base,global=true)
