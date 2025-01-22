@@ -5,6 +5,8 @@ gulp.task('styles', function () {
   return gulp.src([
       'styles/header.styl',
       "styles/Defines/*.styl",
+      "styles/Tools/function.styl",
+      "styles/Tools/random.styl",
       "styles/Tools/string.styl",
       "styles/Tools/selector.styl",
       "styles/Tools/*.styl"

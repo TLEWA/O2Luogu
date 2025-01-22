@@ -1,7 +1,7 @@
 // 类面向对象基本语法实现
 
 // 基本语法：
-// { // 一个键值对列表，作为构造函数
+// { // 一个键值对列表，作为构造函数传入的参数
 // 
 // }
 // 
@@ -9,3 +9,10 @@
 // 
 // 
 // 
+
+Object(argument_list) // 类构造语法的实现
+	error("生成对象时传入类名必须为字符串类型") if !(argument_list.object is a "string") // 规定：类名必须是字符串
+	object_function = convert(argument_list.object)
+	return object_function(argument_list) // 传入自身进行构造
+
+
