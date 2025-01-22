@@ -4,3 +4,33 @@
 		regex = ",(?![^()]*\))"
 		selector_list = regex_split(regex,str)
 		return selector_list
+	
+	// 将选择器列表转换为选择器
+	Selector_to_str(selector_list)
+		return join(",",selector_list)
+
+	// 将选择器列表转换为哈希表
+	Selector_to_map(selector_list)
+		selector_map = {}
+		for selector in selector_list
+			selector_map[selector] = true
+		return selector_map
+
+	// 根据压缩映射表进行选择器压缩
+	Selector_compress(selector_list,compress_map)
+		// 首先将选择器列表转换为哈希表，方便进行高效的查找
+		selector_map = Selector_to_map(selector_list)
+		// 压缩映射表：将多个选择器映射到一个更广泛的选择器
+		// 如果 value 中的所有选择器都在 key 中，则将 value 删除，插入 key
+		for key,value in compress_map
+			// 首先将 value 转换为哈希表
+			value_map = Selector_to_map(value)
+			// 判断 value 是否是 key 的子集
+			res = is_subset(value_map,key)	
+			// 如果是子集，则将 value 删除，插入 key
+			if res
+				for selector in value
+					delete selector_map[selector]
+				selector_map[key] = true
+		return selector_list
+		

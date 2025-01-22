@@ -1,6 +1,15 @@
 // 哈希表的一些操作函数
 	merge_list(a,b) // 合并列表 a,b，优先保留 a 中的键值对
 		for key,value in b
-			if key not in a
+			if (key in a) == false
 				a[key] = value
 		return a
+
+	// 判断一个哈希表是否为另一个的子集
+	is_subset(a,b)
+		for key,value in a
+			if (key in b) == false
+				return false
+			if value != b[key]
+				return false
+		return true
