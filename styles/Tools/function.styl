@@ -27,3 +27,8 @@
 			},global=true)
 		else // 传入函数
 			define(str_ext,base,global=true)
+
+// 进行函数别名定义
+for key,values in alias_list
+	for value in values
+		define_alias(key,value)
