@@ -1,0 +1,6 @@
+// 哈希表的一些操作函数
+	merge_list(a,b) // 合并列表 a,b，优先保留 a 中的键值对
+		for key,value in b
+			if key not in a
+				a[key] = value
+		return a

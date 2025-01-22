@@ -7,6 +7,7 @@ gulp.task('styles', function () {
       "styles/Defines/*.styl",
       "styles/Tools/function.styl",
       "styles/Tools/random.styl",
+      "styles/Tools/list.styl",
       "styles/Tools/string.styl",
       "styles/Tools/selector.styl",
       "styles/Tools/*.styl"
