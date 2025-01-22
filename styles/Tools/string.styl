@@ -1,3 +1,7 @@
 // 字符串相关函数
-to_s()
-	return ''+arguments+''
+	to_s() // 将变量转换为字符串
+		return ''+arguments+''
+	regex_split(regex,str) // 使用正则表达式进行字符串分割
+		str = replace(regex,"%REPLACE%",str)	// 将逗号替换为一个特殊字符串
+		split_list = split("%REPLACE%",str)	// 以特殊字符串分割选择器
+		return split_list

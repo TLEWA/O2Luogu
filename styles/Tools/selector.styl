@@ -1,9 +1,6 @@
 // 选择器相关函数实现
 	// 实现一个解析函数
-	
 	Selector(str) // 传入一个字符串，将其以逗号分割成一些选择器，但是不解析伪类的并列选择器
-		// 由于 Stylus 不支持直接使用正则表达式进行字符串分割，所以先进行 replace 操作
 		regex = ",(?![^()]*\))"
-		selector_list = replace(regex,"%REPLACE%",str)	// 将逗号替换为一个特殊字符串
-		selector_list = split("%REPLACE%",selector_list)	// 以特殊字符串分割选择器
+		selector_list = regex_split(regex,str)
 		return selector_list
