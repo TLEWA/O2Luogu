@@ -14,7 +14,18 @@
 			return true
 		return false
 	
-	convert_type(arg,Type)
+	check_classname(arg,Type) // 检查是否为指定类
+		argType = classname(arg)
+		if argType == Type
+			return true
+		return false
+	
+	error_classname(arg,Type) // 报错指定类
+		argType = classname(arg)
+		if argType != Type
+			error('Expected '+Type+', but got '+argType)
+	
+	convert_type(arg,Type) // 类型转换
 		argType = classname(arg)
 		if argType == Type
 			return arg

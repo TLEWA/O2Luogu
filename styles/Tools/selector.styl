@@ -1,23 +1,42 @@
 // 选择器相关函数实现
+	unit_to_Selector(list) // 将列表转换为选择器
+		error_classname(list,"unit") // 要求传入的参数是列表
+		selector_list = {
+			object: "Selector"
+			data: list
+		}
+		return selector_list	
+
+	Selector_to_unit(selector) // 将选择器转换为列表
+		error_classname(selector,"Selector") // 要求传入的参数是选择器
+		return selector.data
+
 	// 实现一个解析函数
-	Selector(str) // 传入一个字符串，将其以逗号分割成一些选择器，但是不解析伪类的并列选择器
+	string_to_Selector(str) // 传入一个字符串，将其以逗号分割成一些选择器，但是不解析伪类的并列选择器
+		error_classname(str,"string") // 要求传入的参数是字符串	
 		regex = ",(?![^()]*\))"
-		selector_list = regex_split(regex,str)
+		selector_list = list_to_Selector(regex_split(regex,str))
 		return selector_list
 	
 	// 将选择器列表转换为选择器
-	Selector_to_str(selector_list)
-		return join(",",selector_list)
+	Selector_to_string(selector_list)
+		error_classname(selector_list,"Selector") // 要求传入的参数是选择器列表
+		return join(",",Selector_to_list(selector_list))
+
+	make_Selector_map(selector_list) // 将选择器列表转换为哈希表
+		selector_map = convert_type(selector_list,"unit") // 先转换为列表
+		selector_map = list_to_map(selector_list)
+		return selector_map
 
 	// 根据压缩映射表进行选择器压缩
 	Selector_compress(selector_list,compress_map)
 		// 首先将选择器列表转换为哈希表，方便进行高效的查找
-		selector_map = list_to_map(selector_list)
+		selector_map = make_Selector_map(selector_list)
 		// 压缩映射表：将多个选择器映射到一个更广泛的选择器
 		// 如果 value 中的所有选择器都在 selector_map 中，则将 selector_map 中的 value 删除，插入 key
 		for key,value in compress_map
 			// 首先将 value 转换为哈希表
-			value_map = list_to_map(value)
+			value_map = make_Selector_map(value)
 			// 判断 value 是否在 selector_map 中
 			Is_subset = is_subset(value_map,selector_map)
 			// 如果是子集，则将 value 删除，插入 key
@@ -27,4 +46,5 @@
 				selector_map[key] = true
 		// 将哈希表转换为列表
 		selector_list = map_to_list(selector_map)	
+		selector_list = unit_to_Selector(selector_list)
 		return selector_list // 返回压缩后的选择器列表
