@@ -1,13 +1,13 @@
 // 随机数库函数
-	random(l,r)
-		return math(math(0,'random')*(r-l)+l,'floor')
-	random_float()
+	random(a,b)
+		return math(math(0, 'random')*(b - a + 1) + a, 'floor')
+	random_float() // 生成一个 0 到 1 之间的随机浮点数
 		return math(0,'random')
 	// 生成一个随机的八位字母变量名
 	random_name()
 		name = ''
 		for i in 0..7
-			name += random(0,25)+'a'
+			name += letter_map[random(0,25)]
 		if name in random_map
 			return random_name()
 		random_map[name] = true
