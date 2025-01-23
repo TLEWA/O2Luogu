@@ -10,15 +10,27 @@
 	Style_Data(style_data) // 传入样式数据的类型和数据
 		// 一个完整的样式数据应该至少含有：
 		// 1. 样式类型
-		// 2. 样式的键值对
+		// 2. 样式数据的键值对
 
-		
+		Style = {
+			object: "Style_Data",
+			type: style_data.type,
+			data: style_data.data
+		}
+		return Style
 
 	// 定义样式节点类
 	// 样式节点类的构造函数
 	Style_Node(style_data) // 传入样式节点的类型和数据
 		// 一个完整的样式节点应该至少含有：
-		// 1. 样式类型
+		// 1. 样式数据表
 		// 2. 样式对应的选择器
 		// 3. 样式在什么网址下生效
 
+		Style = {
+			object: "Style_Node",
+			style_data: Style_Data(style_data),
+			selector: style_data.selector,
+			url: style_data.url
+		}
+		return Style
