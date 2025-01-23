@@ -1,8 +1,8 @@
 // 随机数库函数
-	random(a,b)
-		return math(math(0, 'random')*(b - a + 1) + a, 'floor')
 	random_float() // 生成一个 0 到 1 之间的随机浮点数
 		return math(0,'random')
+	random(a,b)
+		return math(random_float()*(b - a + 1) + a, 'floor')
 	// 生成一个随机的八位字母变量名
 	random_name()
 		name = ''
