@@ -15,7 +15,8 @@ function link_styles() {
 			"styles/Tools/string.styl", // 字符串相关函数
 			"styles/Tools/class.styl", // 类相关库函数
 			"styles/Tools/selector.styl", // 选择器相关函数
-			"styles/Tools/*.styl"
+			"styles/Tools/*.styl",
+			"styles/Class/style_node.styl" // 样式节点
 		]) // 入口文件
 		.pipe(sourcemaps.init()) // 初始化 sourcemap
 		.pipe(concat('all.styl'))
