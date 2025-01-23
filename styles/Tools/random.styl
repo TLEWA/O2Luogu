@@ -3,3 +3,12 @@
 		return math(math(0,'random')*(r-l)+l,'floor')
 	random_float()
 		return math(0,'random')
+	// 生成一个随机的八位字母变量名
+	random_name()
+		name = ''
+		for i in 0..7
+			name += random(0,25)+'a'
+		if name in random_map
+			return random_name()
+		random_map[name] = true
+		return name
