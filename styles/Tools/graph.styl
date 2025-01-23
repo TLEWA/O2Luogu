@@ -22,3 +22,22 @@
 			Graph_add_node(graph,to)
 		graph.data[from][to] = true
 		return graph
+
+	// 初始化一颗树
+	make_Tree(root_name=null)
+		tree = {
+			object: "Tree",
+			data: {
+				root: root_name,
+				graph: make_Graph()
+				father: {}
+			}
+		}
+		return tree
+
+	// 连接一条边
+	Tree_add_edge(tree,from,to)
+		error_classname(tree,"Tree") // 要求传入的参数是树对象
+		Graph_add_edge(tree.data.graph,from,to)
+		tree.data.father[to] = from
+		return tree
