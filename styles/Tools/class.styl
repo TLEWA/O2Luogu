@@ -3,3 +3,24 @@
 		if (typeof(arg) == "object") && (arg.object is defined)
 				return arg.object
 		return typeof(arg)
+
+	// 类型转换规则：如果定义了 A_to_B 函数，则 A 可以转换为 B
+	check_convert(arg,Type) // 检查是否可以转换为指定类型
+		argType = classname(arg)
+		if argType == Type
+			return true
+		convert_func = to_s(argType+'_to_'+Type)
+		if is_defined(convert_func)
+			return true
+		return false
+	
+	convert_type(arg,Type)
+		argType = classname(arg)
+		if argType == Type
+			return arg
+		convert_func = to_s(argType+'_to_'+Type)
+		if check_convert(arg,Type)
+			convert_func = convert(convert_func) // 把转换函数名转换为函数对象
+			return convert_func(arg)
+		else // 报错
+			error('Can not convert '+argType+' to '+Type)

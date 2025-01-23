@@ -8,11 +8,12 @@ function link_styles() {
 	return gulp.src([
 			'styles/header.styl', // UserStyle Header
 			"styles/Defines/*.styl", // 宏定义变量
+			"styles/Tools/variable.styl", // 变量相关库函数
 			"styles/Tools/function.styl", // 函数相关库函数
-			"styles/Tools/class.styl", // 类相关库函数
 			"styles/Tools/random.styl", // 随机数相关函数
 			"styles/Tools/list.styl", // 哈希表相关函数
 			"styles/Tools/string.styl", // 字符串相关函数
+			"styles/Tools/class.styl", // 类相关库函数
 			"styles/Tools/selector.styl", // 选择器相关函数
 			"styles/Tools/*.styl"
 		]) // 入口文件
