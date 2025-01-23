@@ -1,4 +1,24 @@
 // 图论相关工具函数
-	// 初始化一个图对象
-	//Graph()
-	//
+	// 初始化一个空图对象
+	make_Graph()
+		graph = {
+			object: "Graph",
+			data: {}
+		}
+		return graph
+
+	// 添加一个节点
+	Graph_add_node(graph,node)
+		error_classname(graph,"Graph") // 要求传入的参数是图对象
+		graph.data[node] = {}
+		return graph
+
+	// 添加一条边
+	Graph_add_edge(graph,from,to)
+		error_classname(graph,"Graph") // 要求传入的参数是图对象
+		if graph.data[from] == undefined
+			Graph_add_node(graph,from)
+		if graph.data[to] == undefined
+			Graph_add_node(graph,to)
+		graph.data[from][to] = true
+		return graph
