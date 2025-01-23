@@ -21,7 +21,7 @@
 
 	// 定义样式节点类
 	// 样式节点类的构造函数
-	Style_Node(style_map,style_selector=null,style_type=null) // 传入样式节点的类型和数据
+	make_Style_Node(style_map,style_selector=null,style_type=null) // 传入样式节点的类型和数据
 		// 一个完整的样式节点应该至少含有：
 		// 1. 样式数据表
 		// 2. 样式对应的选择器
@@ -34,3 +34,5 @@
 			data: style_map // map 的 key 是 url，value 是样式数据
 		}
 		return Style
+
+	

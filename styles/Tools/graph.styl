@@ -1,9 +1,9 @@
 // 图论相关工具函数
 	// 初始化一个空图对象
-	make_Graph()
+	make_Graph(graph_data={})
 		graph = {
 			object: "Graph",
-			data: {}
+			data: graph_data
 		}
 		return graph
 
@@ -24,12 +24,13 @@
 		return graph
 
 	// 初始化一颗树
-	make_Tree(root_name=null)
+	make_Tree(root_name=null,graph_data=make_Graph(),father_map={},node_value={})
 		tree = {
 			object: "Tree",
 			root: root_name,
-			graph: make_Graph()
-			father: {}
+			graph: graph_data,
+			father: father_map,
+			value: node_value
 		}
 		return tree
 
