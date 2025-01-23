@@ -7,21 +7,21 @@
 
 	// 定义样式数据类
 	// 样式数据类的构造函数
-	Style_Data(style_data) // 传入样式数据的类型和数据
+	make_Style_Data(style_type=null,style_data=null) // 传入样式数据的类型和数据
 		// 一个完整的样式数据应该至少含有：
 		// 1. 样式类型
 		// 2. 样式数据的键值对
 
 		Style = {
 			object: "Style_Data",
-			type: style_data.type,
-			data: style_data.data
+			type: style_type,
+			data: style_data
 		}
 		return Style
 
 	// 定义样式节点类
 	// 样式节点类的构造函数
-	Style_Node(style_data) // 传入样式节点的类型和数据
+	Style_Node(style_map,style_selector=null,style_type=null) // 传入样式节点的类型和数据
 		// 一个完整的样式节点应该至少含有：
 		// 1. 样式数据表
 		// 2. 样式对应的选择器
@@ -29,8 +29,8 @@
 
 		Style = {
 			object: "Style_Node",
-			style_data: Style_Data(style_data),
-			selector: style_data.selector,
-			url: style_data.url
+			type: style_type,
+			selector: style_selector,
+			data: style_map // map 的 key 是 url，value 是样式数据
 		}
 		return Style
