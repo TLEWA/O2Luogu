@@ -7,7 +7,7 @@
 	random_name(size=8)
 		name = ''
 		for i in 1..size
-			name += letter_map[random(0,25)]
+			name += number_to_lower_map[random(0,25)]
 		if (name in random_map) || is_defined(name)
 			return random_name()
 		random_map[name] = true

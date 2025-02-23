@@ -1,3 +1,9 @@
 // 由于 Stylus 不支持 ASCLL 码和数字的转换，所以这里进行映射
+	// 数字到大写字母的映射
+	number_to_upper_map = @@include('../../lib/number_to_upper.styl')
+	// 大写字母到数字的映射 
+	upper_to_number_map = @@include('../../lib/upper_to_number.styl')
+	// 小写字母到数字的映射
+	lower_to_number_map = @@include('../../lib/lower_to_number.styl')
 	// 数字到小写字母的映射
-	letter_map = @@include('letter_map.styl')
+	number_to_lower_map = @@include('../../lib/number_to_lower.styl')
