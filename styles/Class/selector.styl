@@ -48,3 +48,8 @@
 		selector_list = map_to_list(selector_map)	
 		selector_list = unit_to_Selector(selector_list)
 		return selector_list // 返回压缩后的选择器列表
+
+	// 定义选择器类
+	make_Selector(data) // 传入选择器的数据
+		Selector = convert_type(data,"Selector")
+		return Selector
