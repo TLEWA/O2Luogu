@@ -7,22 +7,51 @@
 
 style_name_map = {}
 
+	// 定义样式属性编译器类
+	// 样式属性编译器类的构造函数
+	make_Style_Compiler(name="null_style_compiler",compiler_func=null_func) // 传入样式属性编译器的类型和数据
+		// 一个完整的样式属性编译器应该至少含有：
+		// 1. 样式的属性编译器
+		// 2. 属性编译器的名称
+
+		Compiler = {
+			object: "Style_Compiler",
+			name: compiler
+		}
+		return Compiler
+
+	// 定义样式 Value 类
+	// 样式 Value 类的构造函数
+	make_Style_Value(attr,compilers=(make_Style_Compiler())) // 传入样式值的类型和数据
+		// 一个完整的样式值应该至少含有：
+		// 1. 样式的属性
+		// 2. 样式的属性编译器
+
+		Style = {
+			object: "Style_Value"
+			style_attr: attr
+		}
+
+		for compiler in compilers
+			Style = merge_class(Style,compiler)
+
+		return Style
+
 	// 定义样式数据类
 	// 样式数据类的构造函数
 	make_Style_Data(style_data={}) // 传入样式数据的类型和数据
 		// 一个完整的样式数据应该至少含有：
-		// 1. 样式类型
-		// 2. 样式数据的键值对
+		// 1. 样式数据的键值对
 
 		Style = {
 			object: "Style_Data",
-			data: style_data
+			data: style_data // 样式的键
 		}
 		return Style
 
 	// 定义样式节点类
 	// 样式节点类的构造函数
-	make_Style_Node(style_map,node_name,style_selector="") // 传入样式节点的类型和数据
+	make_Style_Node(node_name,style_map,style_selector="") // 传入样式节点的类型和数据
 		// 一个完整的样式节点应该至少含有：
 		// 1. 样式数据表
 		// 2. 样式对应的选择器
@@ -31,9 +60,8 @@ style_name_map = {}
 			object: "Style_Node",
 			name: node_name,
 			selector: style_selector,
-			data: style_map // map 的 key 是 url，value 是样式数据
+			data: style_map
 		}
-
 
 		return Style
 

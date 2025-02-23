@@ -14,8 +14,8 @@ function link_styles() {
 			"styles/Tools/list.styl", // 哈希表相关函数
 			"styles/Tools/string.styl", // 字符串相关函数
 			"styles/Tools/class.styl", // 类相关库函数
-			"styles/Tools/selector.styl", // 选择器相关函数
 			"styles/Tools/*.styl",
+			"styles/Class/selector.styl", // 选择器类
 			"styles/Class/style_node.styl" // 样式节点
 		]) // 入口文件
 		.pipe(sourcemaps.init()) // 初始化 sourcemap

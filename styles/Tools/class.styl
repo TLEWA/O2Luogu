@@ -35,3 +35,11 @@
 			return convert_func(arg)
 		else // 报错
 			error('Can not convert '+argType+' to '+Type)
+
+	// 合并两个类的属性
+	merge_class(a,b)
+		if a.object is defined && b.object is defined
+			return merge_list(a,b)
+		else
+			// 报错
+			error('Can not merge '+classname(a)+' and '+classname(b)+"because they are not class")
