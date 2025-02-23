@@ -59,9 +59,9 @@ style_name_map = {}
 		Style = {
 			object: "Style_Node",
 			name: node_name,
-			selector: style_selector,
-			data: style_map
+			selector: style_selector
 		}
+		Style = merge_class(Style,style_map)
 
 		return Style
 
