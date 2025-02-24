@@ -37,7 +37,7 @@ function link_styles(style_src) {
 
 function getStyleStream() {
 	const argv = yargs(hideBin(process.argv))
-		.option('src', {
+		.option('mode', {
 			alias: 's',
 			type: 'array',
 			choices: ['debug', 'style'],
