@@ -48,10 +48,10 @@ function getStyleStream() {
 	
 	const selectedSources = style_header.slice();
 	
-	if (argv.src.includes('debug')) {
+	if (argv.mode.includes('debug')) {
 		selectedSources.push(...debug_body);
 	}
-	if (argv.src.includes('style')) {
+	if (argv.mode.includes('style')) {
 		selectedSources.push(...style_body);
 	}
 	
