@@ -2,6 +2,7 @@ const gulp = require('gulp'); // 引入 gulp
 const concat = require('gulp-concat'); // 文件合并操作
 const fileInclude = require('gulp-file-include'); // 文件导入操作
 const sourcemaps = require('gulp-sourcemaps'); // 生成 sourcemap 文件
+const stylus = require('gulp-stylus'); // Stylus 编译插件
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
 
