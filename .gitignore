@@ -2,4 +2,4 @@
 /merged
 /package-lock.json
 *.wxss
-*.css
+/debug/**/output/
