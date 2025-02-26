@@ -20,7 +20,7 @@ style_header = [
 	"styles/Class/style_node.styl" // 样式节点
 ]
 
-debug_body = ["styles/Debug/*.styl"]
+debug_body = ["debug/styles/*.styl"]
 style_body = []
 
 // 连接文件而不输出 sourcemap
@@ -67,4 +67,17 @@ gulp.task('styles_sourcemap', function () {
 	return getStyleStream()
 		.pipe(sourcemaps.write('./maps')) // 输出 sourcemap 文件
 		.pipe(gulp.dest('./merged')); // 输出目录
+});
+
+const test = require('./debug/test/stylus_compile_test/test');
+
+gulp.task('test', function() {
+	return new Promise((resolve, reject) => {
+		try {
+			test();
+			resolve();
+		} catch (err) {
+			reject(err);
+		}
+	});
 });
